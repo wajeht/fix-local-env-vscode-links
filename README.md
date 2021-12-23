@@ -1,4 +1,4 @@
-# Super Admin VS Code Links
+# Local VS Code Links
 
 <center>
     <img src="./screenshot.png">
