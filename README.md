@@ -1,2 +1,9 @@
 # Super Admin VS Code Links
-Fixed the path to open in VS Code!
+
+<center>
+    <img src="./screenshot.png">
+</center>
+
+- Make a bookmark `CMD + D (Mac)`
+- You might wanna adust path for core folder
+- Paste the code at index.js into url as screenshot above
