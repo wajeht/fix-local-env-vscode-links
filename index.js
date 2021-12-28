@@ -4,7 +4,12 @@
     #MEMBERSHIP_PAGE = "/file/";
     #VSCODE = "vscode://file";
 
-    setCoreGitPath() {
+    /**
+     * Store root path of git folder into browser local storage
+     * 
+     * @returns {String} path - User root git folder path
+     */
+    setGitFolderPath() {
       let pathInLocalStorage = null;
       pathInLocalStorage = localStorage.getItem("coreGitPath");
 
@@ -17,6 +22,12 @@
       return pathInLocalStorage;
     }
 
+    /**
+     * Given a web page, fix all the broken links to open with VS Code
+     * 
+     * @param {String} userPath - User root git folder path
+     * @returns {Void}
+     */
     fixPath(userPath) {
       try {
         const allLinksInDOMs = document.links;
@@ -42,7 +53,7 @@
 
   (function main() {
     const mySetting = new Setting();
-    const path = mySetting.setCoreGitPath();
+    const path = mySetting.setGitFolderPath();
     mySetting.fixPath(path);
   })();
 })();
