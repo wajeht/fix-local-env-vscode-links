@@ -5,6 +5,5 @@
 </center>
 
 - Make a bookmark `CMD + D (Mac)`
-- You might wanna adust path for core folder
-- Paste the code at index.js into url as screenshot above
+- Paste all the code at index.js into `URL`  as screenshot above after `javascript: `
 - Click on this bookmarklet before click links inside 'Super Admin' div. 
