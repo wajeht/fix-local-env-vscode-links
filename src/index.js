@@ -6,7 +6,6 @@
 
     /**
      * Store root path of git folder into browser local storage
-     * 
      * @returns {String} path - User root git folder path
      */
     setGitFolderPath() {
@@ -23,10 +22,9 @@
     }
 
     /**
-     * Given a web page, fix all the broken links to open with VS Code
-     * 
+     * Replace all the links with correct path
      * @param {String} userPath - User root git folder path
-     * @returns {Void}
+     * @returns {Void} null - 
      */
     fixPath(userPath) {
       try {
