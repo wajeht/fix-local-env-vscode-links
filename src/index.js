@@ -9,14 +9,15 @@
         alert("You are not in Core!");
         return;
       }
-      let pathInLocalStorage = null;
-      pathInLocalStorage = localStorage.getItem("coreGitPath");
-      if (!pathInLocalStorage) {
+      let pathInLocalStorage = localStorage.getItem("coreGitPath");
+      if (pathInLocalStorage != null) {
+        return pathInLocalStorage;
+      } else {
         const userPath = prompt("What's your core git folder?");
         localStorage.setItem("coreGitPath", userPath);
         pathInLocalStorage = userPath;
+        return pathInLocalStorage;
       }
-      return pathInLocalStorage;
     }
 
     /**
