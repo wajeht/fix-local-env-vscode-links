@@ -24,7 +24,7 @@
     /**
      * Replace all the links with correct path
      * @param {String} userPath - User root git folder path
-     * @returns {Void} null - 
+     * @returns {Void} null -
      */
     fixPath(userPath) {
       try {
@@ -33,14 +33,14 @@
           const currentLink = link.href;
           if (currentLink.match(this.#CORE_DASHBOARD_PAGE)) {
             const theRest = currentLink.split("/").slice(4).join("/");
-            link.href = this.#VSCODE + userPath + theRest;
-            link.innerText = this.#VSCODE + userPath + theRest;
+            link.href = this.#VSCODE + userPath + "/" + theRest;
+            link.innerText = this.#VSCODE + userPath + "/" + theRest;
           }
 
           if (currentLink.match(this.#MEMBERSHIP_PAGE)) {
             const theRest = currentLink.split("/").slice(7).join("/");
             link.href = this.#VSCODE + userPath + "/" + theRest;
-            link.innerText = this.#VSCODE + userPath + theRest;
+            link.innerText = this.#VSCODE + userPath + "/" + theRest;
           }
         }
       } catch (err) {
