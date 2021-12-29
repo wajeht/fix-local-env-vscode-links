@@ -9,16 +9,13 @@
         alert("You are not in Core!");
         return;
       }
-
       let pathInLocalStorage = null;
       pathInLocalStorage = localStorage.getItem("coreGitPath");
-
       if (!pathInLocalStorage) {
         const userPath = prompt("What's your core git folder?");
         localStorage.setItem("coreGitPath", userPath);
         pathInLocalStorage = userPath;
       }
-
       return pathInLocalStorage;
     }
 
@@ -31,14 +28,11 @@
       try {
         const allTheLinkElementsInDOM = document.links;
         const vsCode = "vscode://file";
-
         for (const linkElement of allTheLinkElementsInDOM) {
           const currentUrl = linkElement.href;
-
-          if (currentUrl.indexOf("/core/view") != -1) {
-            const indexToExtract = currentUrl.indexOf("/core/view");
+          if (currentUrl.indexOf("vscode://") != -1) {
+            const indexToExtract = currentUrl.indexOf("/core");
             const extractedUrl = currentUrl.slice(indexToExtract);
-
             linkElement.href = vsCode + userPath + extractedUrl;
             linkElement.innerText = vsCode + userPath + extractedUrl;
           }
