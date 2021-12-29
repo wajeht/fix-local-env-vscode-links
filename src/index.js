@@ -32,15 +32,15 @@
         for (const link of allLinksInDOMs) {
           const currentLink = link.href;
           if (currentLink.match(this.#CORE_DASHBOARD_PAGE)) {
-            const theRest = currentLink.split("/").slice(4).join("/");
-            link.href = this.#VSCODE + userPath + "/" + theRest;
-            link.innerText = this.#VSCODE + userPath + "/" + theRest;
+            const theRest = currentLink.split("/").slice(3).join("/"); // TODO: de-hard-code this
+            link.href = this.#VSCODE + userPath + "/" + theRest; // TODO: de-card-code this
+            link.innerText = this.#VSCODE + userPath + "/" + theRest; // TODO: de-card-code this
           }
 
           if (currentLink.match(this.#MEMBERSHIP_PAGE)) {
-            const theRest = currentLink.split("/").slice(7).join("/");
-            link.href = this.#VSCODE + userPath + "/" + theRest;
-            link.innerText = this.#VSCODE + userPath + "/" + theRest;
+            const theRest = currentLink.split("/").slice(6).join("/"); // TODO: de-card-code this
+            link.href = this.#VSCODE + userPath + "/" + theRest; // TODO: de-card-code this
+            link.innerText = this.#VSCODE + userPath + "/" + theRest; // TODO: de-card-code this
           }
         }
       } catch (err) {
