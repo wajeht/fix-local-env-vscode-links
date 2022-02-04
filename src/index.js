@@ -5,7 +5,7 @@
      * @returns {String} path - User root git folder path
      */
     setGitFolderPath() {
-      if (!document.URL.match(/recliquecore/)) {
+      if (!document.URL.match(/recliquecore|core/)) {
         alert("You are not in Core!");
         return;
       }
