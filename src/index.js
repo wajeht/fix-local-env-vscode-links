@@ -5,18 +5,21 @@
      * @returns {String} path - User root git folder path
      */
     setGitFolderPath() {
-      if (!document.URL.match(/recliquecore|core/)) {
-        alert("You are not in Core!");
-        return;
-      }
-      let pathInLocalStorage = localStorage.getItem("coreGitPath");
-      if (pathInLocalStorage != null) {
-        return pathInLocalStorage;
-      } else {
-        const userPath = prompt("What's your core git folder?");
-        localStorage.setItem("coreGitPath", userPath);
-        pathInLocalStorage = userPath;
-        return pathInLocalStorage;
+      try {
+        if (!document.URL.match(/recliquecore|core/)) {
+          throw new Error("You're not in core!");
+        }
+        let pathInLocalStorage = localStorage.getItem("coreGitPath");
+        if (pathInLocalStorage != null) {
+          return pathInLocalStorage;
+        } else {
+          const userPath = prompt("What's your core git folder?");
+          localStorage.setItem("coreGitPath", userPath);
+          pathInLocalStorage = userPath;
+          return pathInLocalStorage;
+        }
+      } catch (err) {
+        alert(err);
       }
     }
 
@@ -32,10 +35,9 @@
         const vsCode = "vscode://file";
         for (const linkElement of allTheLinkElementsInDOM) {
           const currentUrl = linkElement.href;
-          if (currentUrl.indexOf("vscode://") != -1) {
+          if (currentUrl.match(/vscode:\/\//)) {
             if (!currentUrl.match(/reclique.core-utils/)) {
-              alert("Already fixed!");
-              return;
+              throw new Error("Already fixed!");
             }
             const indexToExtract = currentUrl.indexOf("/core");
             const extractedUrl = currentUrl.slice(indexToExtract);
