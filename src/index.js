@@ -27,6 +27,7 @@
      */
     fixPath(userPath) {
       try {
+        if (!userPath) return;
         const allTheLinkElementsInDOM = document.links;
         const vsCode = "vscode://file";
         for (const linkElement of allTheLinkElementsInDOM) {
