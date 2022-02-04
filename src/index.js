@@ -33,6 +33,10 @@
         for (const linkElement of allTheLinkElementsInDOM) {
           const currentUrl = linkElement.href;
           if (currentUrl.indexOf("vscode://") != -1) {
+            if (!currentUrl.match(/reclique.core-utils/)) {
+              alert("Already fixed!");
+              return;
+            }
             const indexToExtract = currentUrl.indexOf("/core");
             const extractedUrl = currentUrl.slice(indexToExtract);
             linkElement.href = vsCode + userPath + extractedUrl;
